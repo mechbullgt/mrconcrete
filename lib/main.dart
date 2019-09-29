@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:mrconcrete/concretegrid.dart';
+import 'package:mrconcrete/screens/gradem5.dart';
+import 'package:mrconcrete/screens/gradem10.dart';
+import 'package:mrconcrete/screens/home.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
- final ConcreteGridView concreteGridView = new ConcreteGridView();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: new Scaffold(
-        appBar: AppBar(
-          title: Text("Mr Concrete"),
-        ),
-        body: concreteGridView.build(),
-      )
+      home: HomePage(),
+      routes: <String,WidgetBuilder>{
+        Gradem5.routeName:(BuildContext context)=> Gradem5(),
+        Gradem10.routeName:(BuildContext context)=> Gradem10(),
+      },
     );
   }
 }
