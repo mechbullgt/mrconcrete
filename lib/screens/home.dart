@@ -44,8 +44,8 @@ class HomePage extends StatelessWidget {
       children: <Widget>[
         getStructuredGridCell("Grade M5",5,context),
         getStructuredGridCell("Grade M10",10,context),
-        getStructuredGridCell("Grade M5",5,context),
-        getStructuredGridCell("Grade M5",5,context),
+        getStructuredGridCell("Grade M15",15,context),
+        getStructuredGridCell("Grade M20",20,context),
       ],
     )
         // body: new Container(
