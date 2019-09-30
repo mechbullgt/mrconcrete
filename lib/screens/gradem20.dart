@@ -166,7 +166,7 @@ class _GradeState extends State<Gradem20> {
 
   @override
   Widget build(BuildContext context) {
-    Container infoTextContainer = new Container(
+    Container infoTextContainerTop = new Container(
         padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
         height: 150.0,
         child: RichText(
@@ -193,15 +193,43 @@ class _GradeState extends State<Gradem20> {
                       fontStyle: FontStyle.italic, color: Colors.indigo)),
             ])));
 
+    Container infoTextContainerBottom = new Container(
+        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+        height: 150.0,
+        child: RichText(
+            text: new TextSpan(
+                style: new TextStyle(
+                  fontSize: 13.0,
+                  color: Colors.black87,
+                ),
+                children: <TextSpan>[
+              new TextSpan(
+                text: "Applications:",
+                style: TextStyle(fontWeight: FontWeight.bold)
+              ),
+              new TextSpan(
+                  text:
+                      "\nUsed in construction of Slabs, beams, columns, footings. Standard for reinforced concrete works.",
+                  style: TextStyle(fontWeight: FontWeight.normal)),
+                  new TextSpan(
+                  text:
+                      "\n\nNote:\n",
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+                  new TextSpan(
+                  text:
+                      "As per standards around 30-35 liters of water must be added per 50kg of cement in a Grade M20 concrete mix.",
+                  style: TextStyle(fontWeight: FontWeight.normal)),
+            ])));
+
     Container firstContainer = new Container(
       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: new Text('$_cementCounter',
-          style: TextStyle(height: 0.8, fontSize: 180, color: Colors.white)),
+          style: TextStyle(height: 0.8, fontSize: 80, color: Colors.white)),
     );
 
     Container secondContainer = new Container(
         child: new Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
         new FlatButton(
           child: Column(children: <Widget>[
@@ -286,7 +314,7 @@ class _GradeState extends State<Gradem20> {
                           style: TextStyle(
                               height: 1, fontSize: 50, color: Colors.white,))),
                   new Container(
-                    padding: EdgeInsets.fromLTRB(0,10,3,8),
+                    padding: EdgeInsets.fromLTRB(0,10,5,8),
                       child: Text('Aggregate',
                           textAlign: TextAlign.left,
                           style: TextStyle(
@@ -301,8 +329,7 @@ class _GradeState extends State<Gradem20> {
         ),
         body: new Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.all(0),
-            margin: EdgeInsets.fromLTRB(12, 0, 12, 10),
+            margin: EdgeInsets.fromLTRB(12, 10, 12, 0),
             constraints: BoxConstraints(
                 maxHeight: double.infinity,
                 maxWidth: 300,
@@ -312,7 +339,7 @@ class _GradeState extends State<Gradem20> {
               child: Center(
                 child: Column(
                   children: <Widget>[
-                    infoTextContainer,
+                    infoTextContainerTop,
                     Divider(
                       color: Colors.white,
                       height: 10,
@@ -337,6 +364,11 @@ class _GradeState extends State<Gradem20> {
                       height: 8,
                     ),
                     thirdContainer,
+                                        Divider(
+                      color: Colors.transparent,
+                      height: 8,
+                    ),
+                    infoTextContainerBottom,
                   ],
                 ),
               ),
