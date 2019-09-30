@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Gradem20 extends StatefulWidget {
-  static const String routeName = "/20";
+class Gradem35 extends StatefulWidget {
+  static const String routeName = "/35";
 
   @override
   _GradeState createState() => new _GradeState();
 }
 
-class _GradeState extends State<Gradem20> {
+class _GradeState extends State<Gradem35> {
   String m20Ratio = "M20 Grade 1:1.5:3";
   var m20 = [1.5, 3];
   double sandRatio = 0;
