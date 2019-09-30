@@ -196,7 +196,7 @@ class _GradeState extends State<Gradem20> {
     Container firstContainer = new Container(
       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       child: new Text('$_cementCounter',
-          style: TextStyle(height: 0.8, fontSize: 80, color: Colors.white)),
+          style: TextStyle(height: 0.8, fontSize: 180, color: Colors.white)),
     );
 
     Container secondContainer = new Container(
@@ -245,28 +245,53 @@ class _GradeState extends State<Gradem20> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         new Card(
-          color: Color.fromRGBO(251, 192, 45,1.0),
-          elevation: 2,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            color: Color.fromRGBO(251, 192, 45, 1.0),
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: Padding(
-                padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
-                child: Column(children: <Widget>[
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
                   new Container(
+                    padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
                       child: Text('$_sandCounter',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              height: 1.5, fontSize: 30, color: Colors.white))),
+                              height: 1, fontSize: 50, color: Colors.white))),
                   new Container(
+                    padding: EdgeInsets.fromLTRB(5, 10, 0, 8),
                       child: Text('Sand',
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                              height: 1.5, fontSize: 20, color: Colors.white)))
+                              height: 0, fontSize: 18, color: Colors.white)))
                 ]))),
-        new Text('Aggregate \n $_aggregateCounter',
-            style: TextStyle(
-                height: 1.5,
-                fontSize: 20,
-                color: Color.fromRGBO(64, 64, 64, 100))),
+        new Card(
+            color: Color.fromRGBO(92, 107, 192,1.0),
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            child: Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                  new Container(
+                      padding: EdgeInsets.fromLTRB(40, 0, 40, 10),
+                      child: Text('$_aggregateCounter',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              height: 1, fontSize: 50, color: Colors.white,))),
+                  new Container(
+                    padding: EdgeInsets.fromLTRB(0,10,3,8),
+                      child: Text('Aggregate',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              height: 0, fontSize: 18, color: Colors.white,)))
+                ]))),
       ],
     ));
 
@@ -277,9 +302,12 @@ class _GradeState extends State<Gradem20> {
         body: new Container(
             alignment: Alignment.center,
             padding: EdgeInsets.all(0),
-            margin: EdgeInsets.fromLTRB(12, 0, 12, 25),
+            margin: EdgeInsets.fromLTRB(12, 0, 12, 10),
             constraints: BoxConstraints(
-                maxHeight: double.infinity, maxWidth: 300, minHeight: 0, minWidth: 200),
+                maxHeight: double.infinity,
+                maxWidth: 300,
+                minHeight: 0,
+                minWidth: 200),
             child: SingleChildScrollView(
               child: Center(
                 child: Column(
