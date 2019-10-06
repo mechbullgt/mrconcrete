@@ -166,8 +166,7 @@ class _GradeState extends State<Gradem20> {
   @override
   Widget build(BuildContext context) {
     Container infoTextContainerTop = new Container(
-        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-        height: 150.0,
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
         child: RichText(
             text: new TextSpan(
                 style: new TextStyle(
@@ -194,7 +193,6 @@ class _GradeState extends State<Gradem20> {
 
     Container infoTextContainerBottom = new Container(
         padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-        height: 150.0,
         child: RichText(
             text: new TextSpan(
                 style: new TextStyle(
@@ -322,18 +320,97 @@ class _GradeState extends State<Gradem20> {
       ],
     ));
 
+     Container calculatorContainer = new Container(
+       child:new Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        new Card(
+            color: Color.fromRGBO(251, 192, 45, 1.0),
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            child: Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                  new Container(
+                    padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+                      child: Text('$_sandCounter',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              height: 1, fontSize: 50, color: Colors.white))),
+                  new Container(
+                    padding: EdgeInsets.fromLTRB(5, 10, 0, 8),
+                      child: Text('Sand',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              height: 0, fontSize: 18, color: Colors.white)))
+                ]))),
+                 new Card(
+            color: Color.fromRGBO(251, 192, 45, 1.0),
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            child: Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                  new Container(
+                    padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+                      child: Text('$_sandCounter',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              height: 1, fontSize: 50, color: Colors.white))),
+                  new Container(
+                    padding: EdgeInsets.fromLTRB(5, 10, 0, 8),
+                      child: Text('Sand',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              height: 0, fontSize: 18, color: Colors.white)))
+                ]))),
+        new Card(
+            color: Color.fromRGBO(92, 107, 192,1.0),
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            child: Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                  new Container(
+                      padding: EdgeInsets.fromLTRB(40, 0, 40, 10),
+                      child: Text('$_aggregateCounter',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              height: 1, fontSize: 50, color: Colors.white,))),
+                  new Container(
+                    padding: EdgeInsets.fromLTRB(0,10,5,8),
+                      child: Text('Aggregate',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              height: 0, fontSize: 18, color: Colors.white,)))
+                ]))),
+      ],
+    ));
+
     return new Scaffold(
         appBar: AppBar(
           title: Text("Grade M20"),
         ),
         body: new Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.fromLTRB(12, 10, 12, 0),
+            alignment: Alignment.topCenter,
+            margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
             constraints: BoxConstraints(
                 maxHeight: double.infinity,
-                maxWidth: 300,
+                maxWidth:  MediaQuery.of(context).size.width,
                 minHeight: 0,
-                minWidth: 200),
+                minWidth:200,),
             child: SingleChildScrollView(
               child: Center(
                 child: Column(
@@ -341,17 +418,18 @@ class _GradeState extends State<Gradem20> {
                     infoTextContainerTop,
                     Divider(
                       color: Colors.white,
-                      height: 10,
+                      height: 0,
                     ),
                     new Container(
+                      margin: EdgeInsets.fromLTRB(25, 0, 25, 0),
                         child: Card(
                             shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)),
+                                borderRadius: BorderRadius.circular(30)),
                             elevation: 4,
                             color: Colors.grey,
                             margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
                             child: Padding(
-                                padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                                padding: EdgeInsets.fromLTRB(0, 20, 0, 15),
                                 child: Column(
                                   children: <Widget>[
                                     firstContainer,
@@ -363,7 +441,8 @@ class _GradeState extends State<Gradem20> {
                       height: 8,
                     ),
                     thirdContainer,
-                                        Divider(
+                    // calculatorContainer,
+                      Divider(
                       color: Colors.transparent,
                       height: 8,
                     ),
