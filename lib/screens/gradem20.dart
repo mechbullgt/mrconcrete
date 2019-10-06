@@ -320,84 +320,84 @@ class _GradeState extends State<Gradem20> {
       ],
     ));
 
-     Container calculatorContainer = new Container(
-       child:new Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        new Card(
-            color: Color.fromRGBO(251, 192, 45, 1.0),
-            elevation: 2,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                  new Container(
-                    padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
-                      child: Text('$_sandCounter',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              height: 1, fontSize: 50, color: Colors.white))),
-                  new Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 0, 8),
-                      child: Text('Sand',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              height: 0, fontSize: 18, color: Colors.white)))
-                ]))),
-                 new Card(
-            color: Color.fromRGBO(251, 192, 45, 1.0),
-            elevation: 2,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                  new Container(
-                    padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
-                      child: Text('$_sandCounter',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              height: 1, fontSize: 50, color: Colors.white))),
-                  new Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 0, 8),
-                      child: Text('Sand',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              height: 0, fontSize: 18, color: Colors.white)))
-                ]))),
-        new Card(
-            color: Color.fromRGBO(92, 107, 192,1.0),
-            elevation: 2,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                  new Container(
-                      padding: EdgeInsets.fromLTRB(40, 0, 40, 10),
-                      child: Text('$_aggregateCounter',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              height: 1, fontSize: 50, color: Colors.white,))),
-                  new Container(
-                    padding: EdgeInsets.fromLTRB(0,10,5,8),
-                      child: Text('Aggregate',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              height: 0, fontSize: 18, color: Colors.white,)))
-                ]))),
-      ],
-    ));
+    //  Container calculatorContainer = new Container(
+    //    child:new Row(
+    //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //   children: <Widget>[
+    //     new Card(
+    //         color: Color.fromRGBO(251, 192, 45, 1.0),
+    //         elevation: 2,
+    //         shape:
+    //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    //         child: Padding(
+    //             padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+    //             child: Column(
+    //               crossAxisAlignment: CrossAxisAlignment.start,
+    //               mainAxisAlignment: MainAxisAlignment.start,
+    //               children: <Widget>[
+    //               new Container(
+    //                 padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+    //                   child: Text('$_sandCounter',
+    //                       textAlign: TextAlign.center,
+    //                       style: TextStyle(
+    //                           height: 1, fontSize: 50, color: Colors.white))),
+    //               new Container(
+    //                 padding: EdgeInsets.fromLTRB(5, 10, 0, 8),
+    //                   child: Text('Sand',
+    //                       textAlign: TextAlign.left,
+    //                       style: TextStyle(
+    //                           height: 0, fontSize: 18, color: Colors.white)))
+    //             ]))),
+    //              new Card(
+    //         color: Color.fromRGBO(251, 192, 45, 1.0),
+    //         elevation: 2,
+    //         shape:
+    //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    //         child: Padding(
+    //             padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+    //             child: Column(
+    //               crossAxisAlignment: CrossAxisAlignment.start,
+    //               mainAxisAlignment: MainAxisAlignment.start,
+    //               children: <Widget>[
+    //               new Container(
+    //                 padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+    //                   child: Text('$_sandCounter',
+    //                       textAlign: TextAlign.center,
+    //                       style: TextStyle(
+    //                           height: 1, fontSize: 50, color: Colors.white))),
+    //               new Container(
+    //                 padding: EdgeInsets.fromLTRB(5, 10, 0, 8),
+    //                   child: Text('Sand',
+    //                       textAlign: TextAlign.left,
+    //                       style: TextStyle(
+    //                           height: 0, fontSize: 18, color: Colors.white)))
+    //             ]))),
+    //     new Card(
+    //         color: Color.fromRGBO(92, 107, 192,1.0),
+    //         elevation: 2,
+    //         shape:
+    //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    //         child: Padding(
+    //             padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+    //             child: Column(
+    //               mainAxisAlignment: MainAxisAlignment.end,
+    //               crossAxisAlignment: CrossAxisAlignment.end,
+    //               children: <Widget>[
+    //               new Container(
+    //                   padding: EdgeInsets.fromLTRB(40, 0, 40, 10),
+    //                   child: Text('$_aggregateCounter',
+    //                       textAlign: TextAlign.center,
+    //                       style: TextStyle(
+    //                           height: 1, fontSize: 50, color: Colors.white,))),
+    //               new Container(
+    //                 padding: EdgeInsets.fromLTRB(0,10,5,8),
+    //                   child: Text('Aggregate',
+    //                       textAlign: TextAlign.left,
+    //                       style: TextStyle(
+    //                           height: 0, fontSize: 18, color: Colors.white,)))
+    //             ]))),
+    //   ],
+    // ));
 
     return new Scaffold(
         appBar: AppBar(
