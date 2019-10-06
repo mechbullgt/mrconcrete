@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 class CommonCalls {
   // String mxRatio = "M5 Grade 1:5:10";
@@ -13,6 +14,17 @@ class CommonCalls {
   // var mxArr = [5.0, 10];
   static double sandRatio = 0;
   static double aggregateRatio = 0;
+
+  static final logger = Logger(
+  printer: PrettyPrinter(
+    methodCount: 2, // number of method calls to be displayed
+    errorMethodCount: 8, // number of method calls if stacktrace is provided
+    lineLength: 120, // width of the output
+    colors: true, // Colorful log messages
+    printEmojis: true, // Print an emoji for each log message
+    printTime: false // Should each log print contain a timestamp
+  ),
+  );
 
   static void setSandRatio(mxArr) {
     sandRatio = mxArr[0];
@@ -45,7 +57,7 @@ class CommonCalls {
 
   static String getMxNameForAppBar(String mxGrade, String mxRatio) {
     String mxName = '$mxGrade Grade $mxRatio';
-    print("Name" + mxName);
+    print("Name: " + mxName);
     return mxName;
   }
 }

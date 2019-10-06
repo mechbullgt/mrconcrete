@@ -1,52 +1,82 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mrconcrete/common/commonCalls.dart';
 
 class Gradem5 extends StatefulWidget {
   static const String routeName = "/5";
-
+  
   @override
   _GradeState createState() => new _GradeState();
 }
 
 class _GradeState extends State<Gradem5> {
-  static String mxRatio = "1:5:10";
-  static String mxGrade ="M5";
-  static String gradeStrength ="5Mpa";
-  String infoText1='Grade ' +mxGrade+' Concrete is with ingredients ratio as ';
-  String infoText2="1:5:10 (1 unit cement, 5 unit sand, 10 unit aggregate).";
-  String infoText3="\nIts called so because with the "+mxGrade+" grade concrete a strength of "+gradeStrength+" can be achieved with a curing of 28days.";
-  String infoText4="\n\nIn the below calculator increase the unit count for cement and get the unit count for sand and aggregate below to form a M5 grade concrete.";
-  String applicationText ="\nIts used to form a uniform surface for the foundation concrete. This surface prevents the direct contact of foundation with loose soil in the footing.";
-  String noteText1="As per standards around 30-35 liters of water must be added per 50kg of cement in a Grade M20 concrete mix.";
+
+  //Sample JSON response for future use
+  static var jsonResponseString = """
+  {
+    "data": {
+      "mxRatio": "1:5:10",
+      "mxGrade": "M5",
+      "mxArr": [5.0, 10],
+      "infoText1": "Grade M5 Concrete is with ingredients ratio as ",
+      "infoText2bold":
+          "1:5:10 (1 unit cement, 5 unit sand, 10 unit aggregate).",
+      "infoText3":
+          "\nIts called so because with the M5 grade concrete a strength of 5Mpa can be achieved with a curing of 28days.",
+      "infoText4":
+          "\n\nIn the below calculator increase the unit count for cement and get the unit count for sand and aggregate below to form a M5 grade concrete.",
+      "applicationsInfo":
+          "\nIts used to form a uniform surface for the foundation concrete. This surface prevents the direct contact of foundation with loose soil in the footing.",
+      "notes":
+          "As per standards around 30-35 liters of water must be added per 50kg of cement in a Grade M20 concrete mix."
+    }
+  }
+  """;
+  static var jsonResult = json.decode(jsonResponseString);
+  // static String mxRatio = "1:5:10";
+  static String mxRatio = jsonResult['data'].mxRatio;
+  static String mxGrade = "M5";
+  String infoText1 = 'Grade M5 Concrete is with ingredients ratio as ';
+  String infoText2bold =
+      "1:5:10 (1 unit cement, 5 unit sand, 10 unit aggregate).";
+  String infoText3 =
+      "\nIts called so because with the M5 grade concrete a strength of 5Mpa can be achieved with a curing of 28days.";
+  String infoText4 =
+      "\n\nIn the below calculator increase the unit count for cement and get the unit count for sand and aggregate below to form a M5 grade concrete.";
+  String applicationsInfo =
+      "\nIts used to form a uniform surface for the foundation concrete. This surface prevents the direct contact of foundation with loose soil in the footing.";
+  String notes =
+      "As per standards around 30-35 liters of water must be added per 50kg of cement in a Grade M20 concrete mix.";
   var mxArr = [5.0, 10];
- 
+
   double _cementCounter = 0;
   double _sandCounter = 0;
   double _aggregateCounter = 0;
 
   void _incrementMethod() {
     setState(() {
-            _cementCounter += 1;
-            _sandCounter = _cementCounter * CommonCalls.getSandRatio();
-            _aggregateCounter = _cementCounter * CommonCalls.getArrgregateRatio();
-          });
+      _cementCounter += 1;
+      _sandCounter = _cementCounter * CommonCalls.getSandRatio();
+      _aggregateCounter = _cementCounter * CommonCalls.getArrgregateRatio();
+    });
   }
 
   void _decrementorMethod() {
     setState(() {
-            if (_cementCounter > 0) {
-              _cementCounter -= 1;
-              _sandCounter = _cementCounter * CommonCalls.getSandRatio();
-              _aggregateCounter = _cementCounter * CommonCalls.getArrgregateRatio();
-            }
-    });}
+      if (_cementCounter > 0) {
+        _cementCounter -= 1;
+        _sandCounter = _cementCounter * CommonCalls.getSandRatio();
+        _aggregateCounter = _cementCounter * CommonCalls.getArrgregateRatio();
+      }
+    });
+  }
 
   void _incrementToastAction(BuildContext context) {
-          _incrementMethod();
+    _incrementMethod();
   }
 
   void _decrementorAction(BuildContext context) {
-          _decrementorMethod();
+    _decrementorMethod();
   }
 
   @override
@@ -70,12 +100,11 @@ class _GradeState extends State<Gradem5> {
                 text: infoText1,
               ),
               new TextSpan(
-                  text:infoText2,
+                  text: infoText2bold,
                   style: TextStyle(fontWeight: FontWeight.bold)),
+              new TextSpan(text: infoText3),
               new TextSpan(
-                  text:infoText3),
-              new TextSpan(
-                  text:infoText4,
+                  text: infoText4,
                   style: TextStyle(
                       fontStyle: FontStyle.italic, color: Colors.indigo)),
             ])));
@@ -90,19 +119,16 @@ class _GradeState extends State<Gradem5> {
                 ),
                 children: <TextSpan>[
               new TextSpan(
-                text: "Applications:",
-                style: TextStyle(fontWeight: FontWeight.bold)
-              ),
-              new TextSpan(
-                  text: applicationText,
-                  style: TextStyle(fontWeight: FontWeight.normal)),
-                  new TextSpan(
-                  text:
-                      "\n\nNote:\n",
+                  text: "Applications:",
                   style: TextStyle(fontWeight: FontWeight.bold)),
-                  new TextSpan(
-                  text:noteText1,
+              new TextSpan(
+                  text: applicationsInfo,
                   style: TextStyle(fontWeight: FontWeight.normal)),
+              new TextSpan(
+                  text: "\n\nNote:\n",
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              new TextSpan(
+                  text: notes, style: TextStyle(fontWeight: FontWeight.normal)),
             ])));
 
     Container firstContainer = new Container(
@@ -164,46 +190,56 @@ class _GradeState extends State<Gradem5> {
             child: Padding(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                  new Container(
-                    padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
-                      child: Text('$_sandCounter',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              height: 1, fontSize: 50, color: Colors.white))),
-                  new Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 0, 8),
-                      child: Text('Sand',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              height: 0, fontSize: 18, color: Colors.white)))
-                ]))),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      new Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+                          child: Text('$_sandCounter',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  height: 1,
+                                  fontSize: 50,
+                                  color: Colors.white))),
+                      new Container(
+                          padding: EdgeInsets.fromLTRB(5, 10, 0, 8),
+                          child: Text('Sand',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  height: 0,
+                                  fontSize: 18,
+                                  color: Colors.white)))
+                    ]))),
         new Card(
-            color: Color.fromRGBO(92, 107, 192,1.0),
+            color: Color.fromRGBO(92, 107, 192, 1.0),
             elevation: 2,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: Padding(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                  new Container(
-                      padding: EdgeInsets.fromLTRB(40, 0, 40, 10),
-                      child: Text('$_aggregateCounter',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              height: 1, fontSize: 50, color: Colors.white,))),
-                  new Container(
-                    padding: EdgeInsets.fromLTRB(0,10,5,8),
-                      child: Text('Aggregate',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              height: 0, fontSize: 18, color: Colors.white,)))
-                ]))),
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      new Container(
+                          padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+                          child: Text('$_aggregateCounter',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                height: 1,
+                                fontSize: 50,
+                                color: Colors.white,
+                              ))),
+                      new Container(
+                          padding: EdgeInsets.fromLTRB(0, 10, 5, 8),
+                          child: Text('Aggregate',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                height: 0,
+                                fontSize: 18,
+                                color: Colors.white,
+                              )))
+                    ]))),
       ],
     ));
 
@@ -215,10 +251,11 @@ class _GradeState extends State<Gradem5> {
             alignment: Alignment.topCenter,
             margin: EdgeInsets.fromLTRB(15, 10, 15, 0),
             constraints: BoxConstraints(
-                maxHeight: double.infinity,
-                maxWidth:  MediaQuery.of(context).size.width,
-                minHeight: 0,
-                minWidth:200,),
+              maxHeight: double.infinity,
+              maxWidth: MediaQuery.of(context).size.width,
+              minHeight: 0,
+              minWidth: 200,
+            ),
             child: SingleChildScrollView(
               child: Center(
                 child: Column(
@@ -229,7 +266,7 @@ class _GradeState extends State<Gradem5> {
                       height: 0,
                     ),
                     new Container(
-                      margin: EdgeInsets.fromLTRB(25, 0, 25, 0),
+                        margin: EdgeInsets.fromLTRB(25, 0, 25, 0),
                         child: Card(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30)),
@@ -250,7 +287,7 @@ class _GradeState extends State<Gradem5> {
                     ),
                     thirdContainer,
                     // calculatorContainer,
-                      Divider(
+                    Divider(
                       color: Colors.transparent,
                       height: 8,
                     ),
