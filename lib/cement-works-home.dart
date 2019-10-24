@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class CementWorksHome extends StatelessWidget {
     Container getStructuredGridCell(name,grade,category,context) {
     return new Container(
       margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
@@ -46,31 +46,21 @@ class HomePage extends StatelessWidget {
              mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
             children:[
-            Text("Mr. Concrete",style: TextStyle(fontSize: 25),),
-            Text("Know Concrete Mix",style: TextStyle(fontSize: 15),)
+            Text("Cement Works",style: TextStyle(fontSize: 25),),
+            Text("Know Concrete & Mortar Mix",style: TextStyle(fontSize: 15),)
           ]),
           centerTitle: true,
         ),
         body: new GridView.count(
       primary: true,
-      padding: const EdgeInsets.all(8.0),
-      crossAxisCount: 2,
-      childAspectRatio: 1.75,
-      mainAxisSpacing: 1.0,
-      crossAxisSpacing: 1.0,
+      padding: const EdgeInsets.all(10.0),
+      crossAxisCount: 1,
+      childAspectRatio: 2.0,
+      mainAxisSpacing: 0.25,
+      crossAxisSpacing: 0.5,
       children: <Widget>[
-        getStructuredGridCell("Grade M5",5,'Lean',context),
-        getStructuredGridCell("Grade M7.5",8,'Lean',context),
-        getStructuredGridCell("Grade M10",10,'Ordinary',context),
-        getStructuredGridCell("Grade M15",15,'Ordinary',context),
-        getStructuredGridCell("Grade M20",20,'Ordinary',context),
-        getStructuredGridCell("Grade M25",25,'Standard',context),
-        getStructuredGridCell("Grade M30",30,'Standard',context),
-        getStructuredGridCell("Grade M35",35,'Standard',context),
-        getStructuredGridCell("Grade M40",40,'Standard',context),
-        getStructuredGridCell("Grade M50",50,'High Strength',context),
-        getStructuredGridCell("Grade M55",55,'High Strength',context),
-        getStructuredGridCell("Grade M60",60,'High Strength',context),
+        getStructuredGridCell("Concrete",'chome','Know More',context),
+        getStructuredGridCell("Mortar",'mhome','Know More',context),
       ],
     )
         // body: new Container(

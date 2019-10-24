@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mrconcrete/common/commonCalls.dart';
 
@@ -46,7 +45,7 @@ class _GradeState extends State<Gradem5> {
   String applicationsInfo =
       "\nIts used to form a uniform surface for the foundation concrete. This surface prevents the direct contact of foundation with loose soil in the footing.";
   String notes =
-      "As per standards around 30-35 liters of water must be added per 50kg of cement in a Grade M20 concrete mix.";
+      "M5 is very lean mix concrete and can be used in any nonstructural work. M5 grade concrete is generally used in foundation as PCC. PCC is weak in tension loading while strong in compression loading. This grade is widely used non structural member because it has less compression strength.";
   var mxArr = [5.0, 10];
 
   double _cementCounter = 0;
@@ -194,7 +193,7 @@ class _GradeState extends State<Gradem5> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       new Container(
-                          padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+                          padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                           child: Text('$_sandCounter',
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -222,7 +221,7 @@ class _GradeState extends State<Gradem5> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: <Widget>[
                       new Container(
-                          padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
+                          padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                           child: Text('$_aggregateCounter',
                               textAlign: TextAlign.center,
                               style: TextStyle(
