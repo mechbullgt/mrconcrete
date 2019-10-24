@@ -53,8 +53,8 @@ class _MortarHomeState extends State<MortarHome> {
              mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
             children:[
-            Text("Mr. Concrete",style: TextStyle(fontSize: 25),),
-            Text("Know Concrete Mix",style: TextStyle(fontSize: 15),)
+            Text("Mortar",style: TextStyle(fontSize: 25),),
+            Text("Know Your Mortar Mix",style: TextStyle(fontSize: 15),)
           ]),
           centerTitle: true,
         ),
@@ -62,12 +62,15 @@ class _MortarHomeState extends State<MortarHome> {
       primary: true,
       padding: const EdgeInsets.all(8.0),
       crossAxisCount: 2,
-      childAspectRatio: 1.75,
+      childAspectRatio: 1.5,
       mainAxisSpacing: 1.0,
       crossAxisSpacing: 1.0,
       children: <Widget>[
-        getStructuredGridCell("Grade M5",5,'Lean',context),
-        getStructuredGridCell("Grade M7.5",8,'Lean',context),
+        getStructuredGridCell("Type M",5,'1:3',context),
+        getStructuredGridCell("Type S",5,'1:4',context),
+        getStructuredGridCell("Type N",5,'1:6',context),
+        getStructuredGridCell("Type O",5,'1:9',context),
+        getStructuredGridCell("Type K",5,'1:12',context),
       ],
     )
         // body: new Container(

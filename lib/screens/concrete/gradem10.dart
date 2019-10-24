@@ -1,173 +1,71 @@
 import 'package:flutter/material.dart';
+import 'package:mrconcrete/common/commonCalls.dart';
 
 class Gradem10 extends StatefulWidget {
   static const String routeName = "/10";
-
+  
   @override
   _GradeState createState() => new _GradeState();
 }
 
 class _GradeState extends State<Gradem10> {
-  String m20Ratio = "M20 Grade 1:1.5:3";
-  var m20 = [1.5, 3];
-  double sandRatio = 0;
-  double aggregateRatio = 0;
+  static String mxRatio10 = "1:3:6";
+  static String mxGrade10 = "M10";
+  String appBarText ='$mxGrade10 Grade $mxRatio10';
 
-  void setSandRatio(int grade) {
-    if (grade == 20) {
-      sandRatio = m20[0];
-      debugPrint('Setting Sand Ratio:' + '$sandRatio');
-    }
-  }
-
-  double getSandRatio(int grade) {
-    double currentRatio;
-    if (grade == 20) {
-      currentRatio = sandRatio;
-      debugPrint('Getting Sand Ratio:' + '$currentRatio');
-    }
-    return currentRatio;
-  }
-
-  void setAggregateRatio(int grade) {
-    if (grade == 20) {
-      aggregateRatio = (m20[1]).toDouble();
-      debugPrint('Setting Aggregate Ratio:' + '$aggregateRatio');
-    }
-  }
-
-  double getArrgregateRatio(double grade) {
-    double currentRatio;
-    if (grade == 20) {
-      currentRatio = aggregateRatio;
-      debugPrint('Getting Aggregate Ratio:' + '$currentRatio');
-    }
-    return currentRatio;
-  }
+  String infoText1 = 'Grade M10 Concrete is with ingredients ratio as ';
+  String infoText2bold =
+      "1:3:6 (1 unit cement, 3 unit sand, 6 unit aggregate).";
+  String infoText3 =
+      "\nIts called so because with the M10 grade concrete a strength of 10Mpa can be achieved with a curing of 28 days.";
+  String infoText4 =
+      "\n\nIn the below calculator increase the unit count for cement and get the unit count for sand and aggregate below to form a M10 grade concrete.";
+  String applicationsInfo =
+      "\nIt is used in construction of levelling course, bedding for footing during foundation stage and in concrete roads.";
+  String notes =
+      "M10 is mostly used in PCC (Plain Cement Concrete).";
+  var mxArr = [3.0, 6];
 
   double _cementCounter = 0;
   double _sandCounter = 0;
   double _aggregateCounter = 0;
 
-  void _incrementMethod(int grade) {
+  void _incrementMethod() {
     setState(() {
-      switch (grade) {
-        case 20:
-          {
-            _cementCounter += 1;
-            _sandCounter = _cementCounter * getSandRatio(20);
-            _aggregateCounter = _cementCounter * getArrgregateRatio(20);
-          }
-          break;
-        case 2:
-          {
-            _sandCounter += 1;
-          }
-          break;
-        case 3:
-          {
-            _aggregateCounter += 1;
-          }
-          break;
+      _cementCounter += 1;
+      _sandCounter = _cementCounter * CommonCalls.getSandRatio();
+      _aggregateCounter = _cementCounter * CommonCalls.getArrgregateRatio();
+    });
+  }
+
+  void _decrementorMethod() {
+    setState(() {
+      if (_cementCounter > 0) {
+        _cementCounter -= 1;
+        _sandCounter = _cementCounter * CommonCalls.getSandRatio();
+        _aggregateCounter = _cementCounter * CommonCalls.getArrgregateRatio();
       }
     });
   }
 
-  void _decrementorMethod(int options) {
-    setState(() {
-      switch (options) {
-        case 20:
-          {
-            if (_cementCounter > 0) {
-              _cementCounter -= 1;
-              _sandCounter = _cementCounter * getSandRatio(20);
-              _aggregateCounter = _cementCounter * getArrgregateRatio(20);
-            }
-          }
-          break;
-        case 2:
-          {
-            if (_sandCounter > 0) {
-              _sandCounter -= 1;
-            }
-          }
-          break;
-        case 3:
-          {
-            if (_aggregateCounter > 0) {
-              _aggregateCounter -= 1;
-            }
-          }
-          break;
-      }
-    });
+  void _incrementToastAction(BuildContext context) {
+    _incrementMethod();
   }
 
-  void _incrementToastAction(BuildContext context, int x) {
-    switch (x) {
-      case 20:
-        {
-          _incrementMethod(20);
-          // Fluttertoast.showToast(
-          //     msg: "Cement +1",
-          //     toastLength: Toast.LENGTH_SHORT,
-          //     gravity: ToastGravity.CENTER,
-          //     backgroundColor: Colors.grey[300],
-          //     textColor: Colors.black,
-          //     fontSize: 16.0);
-        }
-        break;
-      case 2:
-        {
-          _incrementMethod(x);
-        }
-        break;
-      case 3:
-        {
-          _incrementMethod(x);
-        }
-        break;
-    }
-  }
-
-  void _decrementorAction(BuildContext context, int y) {
-    switch (y) {
-      case 20:
-        {
-          _decrementorMethod(20);
-        }
-        break;
-      case 2:
-        {
-          _decrementorMethod(2);
-        }
-        break;
-      case 3:
-        {
-          _decrementorMethod(3);
-        }
-        break;
-    }
-  }
-
-  void feedNumbers(int grade) {
-    if (grade == 20) {
-      setSandRatio(20);
-      setAggregateRatio(20);
-    }
+  void _decrementorAction(BuildContext context) {
+    _decrementorMethod();
   }
 
   @override
   void initState() {
     super.initState();
-    feedNumbers(20);
+    CommonCalls.feedNumbers(mxArr);
   }
 
   @override
   Widget build(BuildContext context) {
     Container infoTextContainerTop = new Container(
-        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-        height: 150.0,
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
         child: RichText(
             text: new TextSpan(
                 style: new TextStyle(
@@ -176,25 +74,20 @@ class _GradeState extends State<Gradem10> {
                 ),
                 children: <TextSpan>[
               new TextSpan(
-                text: "Grade M20 Concrete is with ingredients ratio as ",
+                text: infoText1,
               ),
               new TextSpan(
-                  text:
-                      "1:1.5:2 (1 unit cement, 1.5 unit sand, 2 unit aggregate).",
+                  text: infoText2bold,
                   style: TextStyle(fontWeight: FontWeight.bold)),
+              new TextSpan(text: infoText3),
               new TextSpan(
-                  text:
-                      "\nIts called so because with the M20 grade concrete a strength of 20MPa can be achieved with a curing of 28days."),
-              new TextSpan(
-                  text:
-                      "\n\nIn the below calculator increase the unit count for cement and get the unit count for sand and aggregate below to form a M20 grade concrete.",
+                  text: infoText4,
                   style: TextStyle(
                       fontStyle: FontStyle.italic, color: Colors.indigo)),
             ])));
 
     Container infoTextContainerBottom = new Container(
-        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-        height: 150.0,
+        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
         child: RichText(
             text: new TextSpan(
                 style: new TextStyle(
@@ -203,21 +96,16 @@ class _GradeState extends State<Gradem10> {
                 ),
                 children: <TextSpan>[
               new TextSpan(
-                text: "Applications:",
-                style: TextStyle(fontWeight: FontWeight.bold)
-              ),
-              new TextSpan(
-                  text:
-                      "\nUsed in construction of Slabs, beams, columns, footings. Standard for reinforced concrete works.",
-                  style: TextStyle(fontWeight: FontWeight.normal)),
-                  new TextSpan(
-                  text:
-                      "\n\nNote:\n",
+                  text: "Applications:",
                   style: TextStyle(fontWeight: FontWeight.bold)),
-                  new TextSpan(
-                  text:
-                      "As per standards around 30-35 liters of water must be added per 50kg of cement in a Grade M20 concrete mix.",
+              new TextSpan(
+                  text: applicationsInfo,
                   style: TextStyle(fontWeight: FontWeight.normal)),
+              new TextSpan(
+                  text: "\n\nNote:\n",
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              new TextSpan(
+                  text: notes, style: TextStyle(fontWeight: FontWeight.normal)),
             ])));
 
     Container firstContainer = new Container(
@@ -244,7 +132,7 @@ class _GradeState extends State<Gradem10> {
           splashColor: Colors.pink,
           color: Colors.green[300],
           onPressed: () {
-            _incrementToastAction(context, 20);
+            _incrementToastAction(context);
           },
         ),
         new FlatButton(
@@ -261,7 +149,7 @@ class _GradeState extends State<Gradem10> {
           splashColor: Colors.pink,
           padding: EdgeInsets.all(5),
           onPressed: () {
-            _decrementorAction(context, 20);
+            _decrementorAction(context);
           },
         ),
       ],
@@ -279,61 +167,72 @@ class _GradeState extends State<Gradem10> {
             child: Padding(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                  new Container(
-                    padding: EdgeInsets.fromLTRB(30, 0, 30, 10),
-                      child: Text('$_sandCounter',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              height: 1, fontSize: 50, color: Colors.white))),
-                  new Container(
-                    padding: EdgeInsets.fromLTRB(5, 10, 0, 8),
-                      child: Text('Sand',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              height: 0, fontSize: 18, color: Colors.white)))
-                ]))),
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      new Container(
+                          padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                          child: Text('$_sandCounter',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  height: 1,
+                                  fontSize: 50,
+                                  color: Colors.white))),
+                      new Container(
+                          padding: EdgeInsets.fromLTRB(5, 10, 0, 8),
+                          child: Text('Sand',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                  height: 0,
+                                  fontSize: 18,
+                                  color: Colors.white)))
+                    ]))),
         new Card(
-            color: Color.fromRGBO(92, 107, 192,1.0),
+            color: Color.fromRGBO(92, 107, 192, 1.0),
             elevation: 2,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: Padding(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                  new Container(
-                      padding: EdgeInsets.fromLTRB(40, 0, 40, 10),
-                      child: Text('$_aggregateCounter',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              height: 1, fontSize: 50, color: Colors.white,))),
-                  new Container(
-                    padding: EdgeInsets.fromLTRB(0,10,5,8),
-                      child: Text('Aggregate',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              height: 0, fontSize: 18, color: Colors.white,)))
-                ]))),
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      new Container(
+                          padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                          child: Text('$_aggregateCounter',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                height: 1,
+                                fontSize: 50,
+                                color: Colors.white,
+                              ))),
+                      new Container(
+                          padding: EdgeInsets.fromLTRB(0, 10, 5, 8),
+                          child: Text('Aggregate',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                height: 0,
+                                fontSize: 18,
+                                color: Colors.white,
+                              )))
+                    ]))),
       ],
     ));
 
     return new Scaffold(
         appBar: AppBar(
-          title: Text("Grade M20"),
+          title: Text(appBarText),
         ),
         body: new Container(
-            alignment: Alignment.center,
-            margin: EdgeInsets.fromLTRB(12, 10, 12, 0),
+            alignment: Alignment.topCenter,
+            margin: EdgeInsets.fromLTRB(15, 10, 15, 0),
             constraints: BoxConstraints(
-                maxHeight: double.infinity,
-                maxWidth: 300,
-                minHeight: 0,
-                minWidth: 200),
+              maxHeight: double.infinity,
+              maxWidth: MediaQuery.of(context).size.width,
+              minHeight: 0,
+              minWidth: 200,
+            ),
             child: SingleChildScrollView(
               child: Center(
                 child: Column(
@@ -341,17 +240,18 @@ class _GradeState extends State<Gradem10> {
                     infoTextContainerTop,
                     Divider(
                       color: Colors.white,
-                      height: 10,
+                      height: 0,
                     ),
                     new Container(
+                        margin: EdgeInsets.fromLTRB(25, 0, 25, 0),
                         child: Card(
                             shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)),
+                                borderRadius: BorderRadius.circular(30)),
                             elevation: 4,
                             color: Colors.grey,
                             margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
                             child: Padding(
-                                padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                                padding: EdgeInsets.fromLTRB(0, 20, 0, 15),
                                 child: Column(
                                   children: <Widget>[
                                     firstContainer,
@@ -363,7 +263,8 @@ class _GradeState extends State<Gradem10> {
                       height: 8,
                     ),
                     thirdContainer,
-                                        Divider(
+                    // calculatorContainer,
+                    Divider(
                       color: Colors.transparent,
                       height: 8,
                     ),

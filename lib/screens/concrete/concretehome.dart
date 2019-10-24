@@ -54,8 +54,8 @@ class _ConcreteHomeState extends State<ConcreteHome> {
              mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
             children:[
-            Text("Mr. Concrete",style: TextStyle(fontSize: 25),),
-            Text("Know Concrete Mix",style: TextStyle(fontSize: 15),)
+            Text("Concrete",style: TextStyle(fontSize: 25),),
+            Text("Know Your Concrete Mix",style: TextStyle(fontSize: 15),)
           ]),
           centerTitle: true,
         ),

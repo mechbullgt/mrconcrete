@@ -47,17 +47,17 @@ class CementWorksHome extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
             children:[
             Text("Cement Works",style: TextStyle(fontSize: 25),),
-            Text("Know Concrete & Mortar Mix",style: TextStyle(fontSize: 15),)
+            Text("Know About Concrete & Mortar Mixes",style: TextStyle(fontSize: 15),)
           ]),
           centerTitle: true,
         ),
         body: new GridView.count(
       primary: true,
       padding: const EdgeInsets.all(10.0),
-      crossAxisCount: 1,
-      childAspectRatio: 2.0,
-      mainAxisSpacing: 0.25,
-      crossAxisSpacing: 0.5,
+      crossAxisCount: 2,
+      childAspectRatio: 1.5,
+      mainAxisSpacing: 1.0,
+      crossAxisSpacing: 1.0,
       children: <Widget>[
         getStructuredGridCell("Concrete",'chome','Know More',context),
         getStructuredGridCell("Mortar",'mhome','Know More',context),

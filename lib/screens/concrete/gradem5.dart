@@ -32,14 +32,19 @@ class _GradeState extends State<Gradem5> {
   };
 
 //  static var jsonResult = json.decode(jsonResponseString);
-  static String mxRatio = "1:5:10";
+  static String mxRatio5 = "1:5:10";
 //  static String mxRatio = jsonResult['data'].mxRatio;
-  static String mxGrade = "M5";
+  static String mxGrade5 = "M5";
+    String appBarText ='$mxGrade5 Grade $mxRatio5';
+  _GradeState(){
+  print("AppBarText:"+appBarText);
+  }
+
   String infoText1 = 'Grade M5 Concrete is with ingredients ratio as ';
   String infoText2bold =
       "1:5:10 (1 unit cement, 5 unit sand, 10 unit aggregate).";
   String infoText3 =
-      "\nIts called so because with the M5 grade concrete a strength of 5Mpa can be achieved with a curing of 28days.";
+      "\nIts called so because with the M5 grade concrete a strength of 5Mpa can be achieved with a curing of 28 days.";
   String infoText4 =
       "\n\nIn the below calculator increase the unit count for cement and get the unit count for sand and aggregate below to form a M5 grade concrete.";
   String applicationsInfo =
@@ -244,7 +249,7 @@ class _GradeState extends State<Gradem5> {
 
     return new Scaffold(
         appBar: AppBar(
-          title: Text(CommonCalls.getMxNameForAppBar(mxGrade, mxRatio)),
+          title: Text(appBarText),
         ),
         body: new Container(
             alignment: Alignment.topCenter,

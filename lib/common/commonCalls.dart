@@ -55,9 +55,9 @@ class CommonCalls {
     setAggregateRatio(mxArr);
   }
 
-  static String getMxNameForAppBar(String mxGrade, String mxRatio) {
-    String mxName = '$mxGrade Grade $mxRatio';
-    print("Name: " + mxName);
-    return mxName;
-  }
+  // static String getMxNameForAppBar(String mxGrade, String mxRatio) {
+  //   String mxName = '$mxGrade Grade $mxRatio';
+  //   print("Name: " + mxName);
+  //   return mxName;
+  // }
 }
