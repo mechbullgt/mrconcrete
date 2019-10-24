@@ -12,7 +12,7 @@ class Gradem5 extends StatefulWidget {
 class _GradeState extends State<Gradem5> {
 
   //Sample JSON response for future use
-  static var jsonResponseString = """
+  static var jsonResponseString =
   {
     "data": {
       "mxRatio": "1:5:10",
@@ -30,11 +30,11 @@ class _GradeState extends State<Gradem5> {
       "notes":
           "As per standards around 30-35 liters of water must be added per 50kg of cement in a Grade M20 concrete mix."
     }
-  }
-  """;
-  static var jsonResult = json.decode(jsonResponseString);
-  // static String mxRatio = "1:5:10";
-  static String mxRatio = jsonResult['data'].mxRatio;
+  };
+
+//  static var jsonResult = json.decode(jsonResponseString);
+  static String mxRatio = "1:5:10";
+//  static String mxRatio = jsonResult['data'].mxRatio;
   static String mxGrade = "M5";
   String infoText1 = 'Grade M5 Concrete is with ingredients ratio as ';
   String infoText2bold =
