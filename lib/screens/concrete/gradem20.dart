@@ -16,7 +16,7 @@ class _GradeState extends State<Gradem20> {
 
   String infoText1 = 'Grade $mxGrade20 Concrete is with ingredients ratio as ';
   String infoText2bold =
-      "1:1.5:3 (1 unit cement, 2 unit sand, 4 unit aggregate).";
+      "1:1.5:3 (1 unit cement, 1.5 unit sand, 3 unit aggregate).";
   String infoText3 =
       "\nIts called so because with the $mxGrade20 grade concrete a strength of $mxStrength can be achieved with a curing of 28 days.";
   String infoText4 =

@@ -55,6 +55,58 @@ class CommonCalls {
     setAggregateRatio(mxArr);
   }
 
+ // Method to return color for the card as per the card type
+  static Color getColorForCard(int key){
+    switch (key) {
+      case 1:
+      return Colors.blue;
+      case 2:
+      return Colors.green;
+      case 3:
+      return Colors.red;
+      break;
+      default:
+      return Colors.grey;
+    }
+    }
+
+  static Container getGridContainer(name,grade,category,int colorKey,context) {
+    return new Container(
+      margin: EdgeInsets.fromLTRB(5, 5, 5, 5),
+      height: 0.5,
+      child:Card(
+      elevation: 10,
+      color: getColorForCard(colorKey),
+        child: InkWell(
+            splashColor: Colors.blue,
+            onTap: () {
+              print('Card tapped:'+'$grade');
+              Navigator.of(context).pushNamed("/$grade");
+            },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              verticalDirection: VerticalDirection.down,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 12, 30, 0),
+                  child: Text(
+                    name,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0, 5, 5, 0),
+                  child:Text(category,))
+              ],
+            ))));
+  }
+ 
   // static String getMxNameForAppBar(String mxGrade, String mxRatio) {
   //   String mxName = '$mxGrade Grade $mxRatio';
   //   print("Name: " + mxName);
