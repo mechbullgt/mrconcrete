@@ -28,7 +28,8 @@ class _MortarHomeState extends State<MortarHome> {
               verticalDirection: VerticalDirection.down,
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.fromLTRB(0, 12, 30, 0),
+                  margin: EdgeInsets.all(5),
+                  padding: EdgeInsets.fromLTRB(5, 12, 15, 0),
                   child: Text(
                     name,
                     textAlign: TextAlign.center,
@@ -39,7 +40,7 @@ class _MortarHomeState extends State<MortarHome> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(0, 5, 5, 0),
+                  padding: EdgeInsets.fromLTRB(0, 8, 5, 0),
                   child:Text(category,))
               ],
             ))));
@@ -66,11 +67,12 @@ class _MortarHomeState extends State<MortarHome> {
       mainAxisSpacing: 1.0,
       crossAxisSpacing: 1.0,
       children: <Widget>[
-        getStructuredGridCell("Type M",5,'1:3',context),
-        getStructuredGridCell("Type S",5,'1:4',context),
-        getStructuredGridCell("Type N",5,'1:6',context),
-        getStructuredGridCell("Type O",5,'1:9',context),
-        getStructuredGridCell("Type K",5,'1:12',context),
+        getStructuredGridCell('4.5" Wall',5,'1:4 / Type S',context),
+        getStructuredGridCell('9" Wall',5,'1:6 / Type N',context),
+        getStructuredGridCell("Wall Plastering",5,'1:6 / Type N',context),
+        getStructuredGridCell('Ceiling Plastering',5,'1:4 / Type S',context),
+        getStructuredGridCell("1:9",5,'Type O',context),
+        getStructuredGridCell("1:12",5,'Type K',context),
       ],
     )
         // body: new Container(
