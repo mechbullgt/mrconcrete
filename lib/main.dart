@@ -10,10 +10,17 @@ import 'package:mrconcrete/screens/concrete/gradem35.dart';
 import 'package:mrconcrete/screens/concrete/gradem40.dart';
 import 'package:mrconcrete/screens/concrete/gradem5.dart';
 import 'package:mrconcrete/screens/concrete/gradem50.dart';
-import 'package:mrconcrete/screens/concrete/gradem55.dart';
 import 'package:mrconcrete/screens/concrete/gradem60.dart';
 import 'package:mrconcrete/screens/concrete/gradem8.dart';
+import 'package:mrconcrete/screens/mortar/mortar45.dart';
+import 'package:mrconcrete/screens/mortar/mortar90.dart';
+import 'package:mrconcrete/screens/mortar/mortar95.dart';
 import 'package:mrconcrete/screens/mortar/mortarhome.dart';
+
+import 'screens/mortar/mortar100.dart';
+import 'screens/mortar/mortar105.dart';
+import 'screens/mortar/mortar110.dart';
+import 'screens/mortar/mortar115.dart';
 
 void main() => runApp(MyApp());
 
@@ -37,8 +44,15 @@ class MyApp extends StatelessWidget {
         Gradem35.routeName:(BuildContext context)=> Gradem35(),
         Gradem40.routeName:(BuildContext context)=> Gradem40(),
         Gradem50.routeName:(BuildContext context)=> Gradem50(),
-        Gradem55.routeName:(BuildContext context)=> Gradem55(),
         Gradem60.routeName:(BuildContext context)=> Gradem60(),
+        Mortar45.routeName:(BuildContext context)=> Mortar45(),
+        Mortar90.routeName:(BuildContext context)=> Mortar90(),
+        Mortar95.routeName:(BuildContext context)=> Mortar95(),
+        Mortar100.routeName:(BuildContext context)=> Mortar100(),
+        Mortar105.routeName:(BuildContext context)=> Mortar105(),
+        Mortar110.routeName:(BuildContext context)=> Mortar110(),
+        Mortar115.routeName:(BuildContext context)=> Mortar115(),
+
       },
     );
   }

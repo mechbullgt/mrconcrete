@@ -13,7 +13,7 @@ class _GradeState extends State<Gradem35> {
   String appBarText = '$mxGrade35 Grade';
 
   String infoText =
-      "$mxGrade35 is known as Design Mix and is used as RCC (Reinforce Cement Concrete).\n\nIt can be used in construction of Slabs, beams, columns, footings.";
+      "$mxGrade35 is a design mix, used in RCC works (Reinforced Cement Concrete).\n\nIt can be used in construction of Slabs, beams, columns, footings.\n\nNote: Proportion of cement, sand and aggregate for a design mix are dependent on the actual quality of the material and hence the mix ratio can be know only by considering the sample of materials being used.";
 
   void _showMaterialDialog() {
     showDialog(

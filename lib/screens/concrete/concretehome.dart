@@ -45,7 +45,6 @@ class _ConcreteHomeState extends State<ConcreteHome> {
         getStructuredGridCell("Grade M35",35,'Standard',2,context),
         getStructuredGridCell("Grade M40",40,'Standard',2,context),
         getStructuredGridCell("Grade M50",50,'High Strength',3,context),
-        getStructuredGridCell("Grade M55",55,'High Strength',3,context),
         getStructuredGridCell("Grade M60",60,'High Strength',3,context),
       ],
     )

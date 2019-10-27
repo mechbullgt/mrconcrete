@@ -40,19 +40,19 @@ class _MortarHomeState extends State<MortarHome> {
           crossAxisSpacing: 0.5,
           children: <Widget>[
             getStructuredGridCell(
-                'Brickwork\n4.5" Wall', 5, '1:4 / Type S',0, context),
+                'Brickwork\n4.5" Wall', 45, '1:4 / Type S',0, context),
             getStructuredGridCell(
-                'Brickwork\n9" Wall', 5, '1:6 / Type N',0, context),
+                'Brickwork\n9" Wall', 90, '1:6 / Type N',0, context),
             getStructuredGridCell(
-                "Interior Wall Plastering", 5, '1:6 / Type N',2, context),
+                "Interior Wall Plastering", 95, '1:6 / Type N',2, context),
             getStructuredGridCell(
-                'Ceiling Plastering', 5, '1:4 / Type S',2, context),
+                'Ceiling Plastering', 100, '1:4 / Type S',2, context),
             getStructuredGridCell(
-                "Beam/Column Plastering", 5, '1:3 / Type M',2, context),
+                "Beam/Column Plastering", 105, '1:3 / Type M',2, context),
             getStructuredGridCell(
-                "Exterior Wall Plastering", 5, '1:4 / Type S',2, context),
+                "Exterior Wall Plastering", 110, '1:4 / Type S',2, context),
             getStructuredGridCell(
-                "Exterior Repair Work", 5, '1:3 / Type M',3, context),
+                "Exterior Repair Work", 115, '1:3 / Type M',3, context),
           ],
         ));
   }
