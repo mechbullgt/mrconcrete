@@ -26,8 +26,30 @@ class _ConcreteHomeState extends State<ConcreteHome> {
             Text("Know Your Concrete Mix",style: TextStyle(fontSize: 15),)
           ]),
           centerTitle: true,
+           flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[
+                  Color(0xff304352),
+                  Color(0xffd7d2cc)
+                ],
+              ),
+            ),
+          ),        
         ),
-        body: new GridView.count(
+        body:Container(decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[
+                  Color(0xff2c3e50),
+                  Color(0xff3498db)
+                ],
+              ),
+            ),
+            child:  new GridView.count(
       primary: true,
       padding: const EdgeInsets.all(8.0),
       crossAxisCount: 2,
@@ -48,7 +70,7 @@ class _ConcreteHomeState extends State<ConcreteHome> {
         getStructuredGridCell("Grade M60",60,'High Strength',3,context),
       ],
     )
-        );
+    ));
   }
 
 }

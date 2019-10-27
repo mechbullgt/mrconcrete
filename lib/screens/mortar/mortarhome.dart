@@ -32,8 +32,30 @@ class _MortarHomeState extends State<MortarHome> {
                 )
               ]),
           centerTitle: true,
+           flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[
+                  Color(0xff141e30),
+                  Color(0xff243b55)
+                ],
+              ),
+            ),
+          ),
         ),
-        body: GridView.count(
+        body: Container(decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[
+                  Color(0xff2c3e50),
+                  Color(0xff3498db)
+                ],
+              ),
+            ),
+            child: GridView.count(
           crossAxisCount: 2,
           childAspectRatio: 1.5,
           mainAxisSpacing: 0.5,
@@ -54,6 +76,6 @@ class _MortarHomeState extends State<MortarHome> {
             getStructuredGridCell(
                 "Exterior Repair Work", 115, '1:3 / Type M',3, context),
           ],
-        ));
+    )));
   }
 }

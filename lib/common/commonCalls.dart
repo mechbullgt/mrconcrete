@@ -106,10 +106,4 @@ class CommonCalls {
               ],
             ))));
   }
- 
-  // static String getMxNameForAppBar(String mxGrade, String mxRatio) {
-  //   String mxName = '$mxGrade Grade $mxRatio';
-  //   print("Name: " + mxName);
-  //   return mxName;
-  // }
 }

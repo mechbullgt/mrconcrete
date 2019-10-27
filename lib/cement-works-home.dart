@@ -7,7 +7,7 @@ class CementWorksHome extends StatelessWidget {
         height: 0.5,
         child: Card(
             elevation: 5,
-            color: Colors.grey,
+            color: Colors.yellow,
             child: InkWell(
                 splashColor: Colors.blue,
                 onTap: () {
@@ -60,21 +60,40 @@ class CementWorksHome extends StatelessWidget {
                 )
               ]),
           centerTitle: true,
-        ),
-        body: Center(child:SingleChildScrollView(child:Column(children: <Widget>[
-          Container(
-            width: 200,
-            padding: EdgeInsets.fromLTRB(10,0,10,0),
-            height: 100,
-            child: getStructuredGridCell(
-                "Concrete Works", 'chome', 'Grades', context),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[Color(0xff2c3e50), Color(0xff3498db)],
+              ),
+            ),
           ),
-          Container(
-              width: 200,
-              padding: EdgeInsets.fromLTRB(10,0,10,0),
-              height: 100,
-              child: getStructuredGridCell(
-                  "Mortar Works", 'mhome', 'Ratios', context))
-        ]))));
+        ),
+        body: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: <Color>[Color(0xff2c3e50), Color(0xff3498db)],
+              ),
+            ),
+            child: Center(
+                child: SingleChildScrollView(
+                    child: Column(children: <Widget>[
+              Container(
+                width: 200,
+                padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                height: 100,
+                child: getStructuredGridCell(
+                    "Concrete Works", 'chome', 'Grades', context),
+              ),
+              Container(
+                  width: 200,
+                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  height: 100,
+                  child: getStructuredGridCell(
+                      "Mortar Works", 'mhome', 'Ratios', context))
+            ])))));
   }
 }
