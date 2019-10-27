@@ -17,28 +17,6 @@ class _ConcreteHomeState extends State<ConcreteHome> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: AppBar(
-          title:Column(
-             mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-            children:[
-            Text("Concrete Works",style: TextStyle(fontSize: 25),),
-            Text("Know Your Concrete Mix",style: TextStyle(fontSize: 15),)
-          ]),
-          centerTitle: true,
-           flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: <Color>[
-                  Color(0xff304352),
-                  Color(0xffd7d2cc)
-                ],
-              ),
-            ),
-          ),        
-        ),
         body:Container(decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.centerLeft,

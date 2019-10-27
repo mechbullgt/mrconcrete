@@ -59,14 +59,14 @@ class CommonCalls {
   static Color getColorForCard(int key){
     switch (key) {
       case 1:
-      return Colors.blue;
+      return Color(0xff607D8B);
       case 2:
-      return Colors.green;
+      return Color(0xff009688);
       case 3:
-      return Colors.red;
+      return Color(0xffFF9800);
       break;
       default:
-      return Colors.grey;
+      return Color(0xff9e9e9e);
     }
     }
 

@@ -17,34 +17,6 @@ class _MortarHomeState extends State<MortarHome> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: AppBar(
-          title: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  "Mortar Works",
-                  style: TextStyle(fontSize: 25),
-                ),
-                Text(
-                  "Know Your Mortar Mix",
-                  style: TextStyle(fontSize: 15),
-                )
-              ]),
-          centerTitle: true,
-           flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: <Color>[
-                  Color(0xff141e30),
-                  Color(0xff243b55)
-                ],
-              ),
-            ),
-          ),
-        ),
         body: Container(decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.centerLeft,
