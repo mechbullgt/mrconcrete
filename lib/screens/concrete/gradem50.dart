@@ -38,7 +38,7 @@ class _GradeState extends State<Gradem50> {
             actions: <Widget>[
               FlatButton(
                   onPressed: () {
-                    _dismissToGoBackFromDialog();
+                    _dismissToGoBackFromDialog(context);
                   },
                   child: Text('Close')),
               // FlatButton(
@@ -53,8 +53,11 @@ class _GradeState extends State<Gradem50> {
         });
   }
 
-  _dismissToGoBackFromDialog() {
-    Navigator.popUntil(context, ModalRoute.withName('/chome'));
+  _dismissToGoBackFromDialog(context) {
+    // Navigator.popUntil(context, ModalRoute.withName('/chome'));
+
+// User taps on close and the pop is gone.
+    Navigator.pop(context);
   }
 
   @override
